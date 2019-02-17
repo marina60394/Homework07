@@ -17,11 +17,11 @@ public class CheckLoginAlertsTest {
     private WebDriver driver;
     private WebDriverWait wait;
     private final String URL = "https://s1.demo.opensourcecms.com/s/44";
-    private final String INVALID_LOGIN_MESSAGE = "//span[@id=\'spanMessage\']";
-    public final String FIELD_LOGIN = "//input[@id=\'txtUsername\']";
-    public final String FIELD_PASSWORD = "//input[@id=\'txtPassword\']";
+    private final String INVALID_LOGIN_MESSAGE = "//span[@id='spanMessage']";
+    public final String FIELD_LOGIN = "//input[@id='txtUsername']";
+    public final String FIELD_PASSWORD = "//input[@id='txtPassword']";
     public final String BUTTON_LOGIN = "//input[@id='btnLogin']";
-    public final String REMOVE_FRAME = "//div[@class=\"preview__action--close\"]/a/span";
+    public final String REMOVE_FRAME = "//div[@class='preview__action--close']/a/span";
     public final String IFRAME_PREVIEW = "//iframe[@name='preview-frame']";
 
     /**
