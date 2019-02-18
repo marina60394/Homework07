@@ -23,6 +23,7 @@ public class CheckLoginAlertsTest {
     public final String BUTTON_LOGIN = "//input[@id='btnLogin']";
     public final String REMOVE_FRAME = "//div[@class='preview__action--close']/a/span";
     public final String IFRAME_PREVIEW = "//iframe[@name='preview-frame']";
+    public final String ERROR_ALERT = "//span[@id='spanMessage']";
 
     /**
      * Set up method to initialize driver and WebDriverWait
@@ -61,14 +62,14 @@ public class CheckLoginAlertsTest {
         // click to Button Login
         driver.findElement(By.xpath((BUTTON_LOGIN))).click();
 
-        // Wait invalid message "Invalid credentials"
-        wait.until(ExpectedConditions.textToBe(By.xpath(INVALID_LOGIN_MESSAGE), "Invalid credentials"));
+        // Check alert with invalid data
+        Assert.assertEquals("Invalid credentials", driver.findElement(By.xpath(ERROR_ALERT)).getText());
 
         // click to Login button
         driver.findElement(By.xpath(BUTTON_LOGIN)).click();
 
-        // Wait invalid message "Username cannot be empty"
-        wait.until(ExpectedConditions.textToBe(By.xpath(INVALID_LOGIN_MESSAGE), "Username cannot be empty"));
+        // Check alert with empty data
+        Assert.assertEquals("Username cannot be empty", driver.findElement(By.xpath(ERROR_ALERT)).getText());
 
         //  sendKeys to element Login
         driver.findElement(By.xpath(FIELD_LOGIN)).sendKeys("Login");
@@ -76,8 +77,8 @@ public class CheckLoginAlertsTest {
         // click to Login button
         driver.findElement(By.xpath(BUTTON_LOGIN)).click();
 
-        // Wait invalid message "Password cannot be empty"
-        wait.until(ExpectedConditions.textToBe(By.xpath(INVALID_LOGIN_MESSAGE), "Password cannot be empty"));
+        // Check alert with empty password
+        Assert.assertEquals("Password cannot be empty", driver.findElement(By.xpath(ERROR_ALERT)).getText());
 
         // switch to default Content
         driver.switchTo().defaultContent();
